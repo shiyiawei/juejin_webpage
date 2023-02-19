@@ -18,9 +18,15 @@
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    //针对elementui引入
+    // 全局引入样式
+    // 针对elementui引入
     'element-ui/lib/theme-chalk/index.css',
-    'element-ui/lib/theme-chalk/display.css'
+    // 自定义主题样式
+    '@/assets/theme/index.css',
+    // 布局样式
+    'element-ui/lib/theme-chalk/display.css',
+    // 项目自定义全局样式
+    '@/assets/css/global.css'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -37,7 +43,20 @@
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    '@nuxtjs/axios',
   ],
+
+  axios: {
+    proxy: true,//开启代理转发
+    prefix: '/api'//请求接口添加前缀
+  },
+
+  proxy: {
+    '/api': {
+      target: 'https://mock.mengxuegu.com/mock/63f1cfe1c5a76a117cab10c9',
+      pathRewrite: {'^/api': ''}
+    }
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
