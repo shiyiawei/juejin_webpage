@@ -30,10 +30,10 @@
                 <el-menu-item index="/chajian">插件</el-menu-item>
             </el-menu>
           </el-col>
-          <el-col class="nav-right"   :xs="1" :sm="1" :md="1">
+          <el-col class="nav-right"   :xs="2" :sm="2" :md="2">
             <!-- 主题更改按钮 -->
             <div class="nav-sign">
-              <el-button type="info" icon="el-icon-moon" circle></el-button>
+              <el-button type="info" icon="el-icon-moon" circle @click="changeTopic"></el-button>
             </div>
           </el-col>
         </el-row>
@@ -64,22 +64,48 @@
   </div>
 </template>
 <script>
-// import { userInfo } from 'os';
-// import { computed } from 'vue';
-
-      // computed: {
-      //   userInfo(){
-      //     return this.$store.state.userInfo
-      //   },
-
-      //   defaultActive(){
-      //     let routePath = this.$route.matched[0].path || '/'
-      //     if(routePath.indexOf('/', 1)!== -1){
-      //       routePath = routePath.substring(0, routePath.indexOf('/', 1))
-      //     }
-      //     return routePath.indexOf('/article') !== -1 ? '/' :routePath
-      //   }
-      // }
+import { mapState, mapMutations } from 'vuex';
+export default {
+  data() {
+    return {
+      white: '',
+      show: true
+    }
+  },
+  created() {
+    if (process.client) {
+      this.white = localStorage.getItem('isWhite')
+      console.log(this.white);
+      console.log('is', this.isWhite);
+    }
+  },
+  computed: {
+    ...mapState([
+        'isWhite'
+      ]),
+    },
+  methods: {
+    ...mapMutations(["changeTopicFn"]),
+    changeTopic() {
+      if (this.white == true) {
+        // 白色点击切换成黑色
+        localStorage.removeItem('isWhite')
+        localStorage.setItem("isWhite", false)
+        this.white = false
+        this.changeTopicFn()
+      } else {
+        localStorage.removeItem('isWhite')
+        localStorage.setItem("isWhite", true)
+        this.white = true
+        this.changeTopicFn()
+      }
+      // this.show = false
+      // setTimeout(() => {
+      //   this.show = true
+      // }, 0);
+    }
+  }
+}
 </script>   
 <style scoped>
 /* 头部 */

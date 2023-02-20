@@ -1,6 +1,7 @@
 {
   "name": "fangjuejin",
   "version": "1.0.0",
+  "author": "shiyiawei",
   "private": true,
   "scripts": {
     "dev": "nuxt",

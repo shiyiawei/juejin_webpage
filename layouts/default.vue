@@ -1,12 +1,11 @@
 <template>
-    <div class="ft">
-        <j-header />
-        <div class="j-main">
+    <div class="ft" :class="[isWhite? 'day':'night', 'box']" ref="box">
+        <j-header  v-if="show" :topic-white="isWhite"/>
+        <main class="j-main">
             <nuxt />
-        </div>  
+        </main>  
         <el-backtop :bottom="80"></el-backtop>
     </div>
-  
 </template>
 <script>
 import JHeader from '@/components/layout/Header'
