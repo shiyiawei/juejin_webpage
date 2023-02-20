@@ -5,9 +5,18 @@
   
 /* 右侧课程推荐 */
 .right-card {
-margin-top: 0;
+  margin-left: 20px;
+  margin-top: 10px;
 }
 .right-card img{
   width: 100%;
-  display: block;
+  display: flex;
+}
+.r-bottom{
+  margin-left: 20px;
+  margin-top: 10px;
+}
+.r-bottom span{
+  font-size: 14px;
+  font-weight: 500;
 }

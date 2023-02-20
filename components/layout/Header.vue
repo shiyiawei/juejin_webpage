@@ -1,6 +1,7 @@
 <template>
     <div class="header header-fixed">
       <div class="nav">
+        <!-- 第一级导航栏 -->
         <el-row type="flex" justify="space-between">
           <el-col :xs="5" :sm="5" :md="5" :lg="5">
             <nuxt-link to="/">
@@ -36,41 +37,55 @@
             </div>
           </el-col>
         </el-row>
-        <!--第二级导航栏-->
-        <el-row type="flex" justify="center">
-          <el-col class="hidden-sm-and-down" :md="20">
-                <el-menu 
-                  default-active="defaultActive" 
-                    mode="horizontal" 
-                  active-text-color="#345dc2"
-                  background-color="#fafafa"
-                  router
-                >
-                    <el-menu-item index="/recommended">综合</el-menu-item>
-                    <el-menu-item index="/following">关注</el-menu-item>
-                    <el-menu-item index="/backend">后端</el-menu-item>
-                    <el-menu-item index="/frontend">前端</el-menu-item>
-                    <el-menu-item index="/android">Android</el-menu-item>
-                    <el-menu-item index="/ios">iOS</el-menu-item>
-                    <el-menu-item index="/ai">人工智能</el-menu-item>
-                    <el-menu-item index="/freebie">开发工具</el-menu-item>
-                    <el-menu-item index="/career">代码人生</el-menu-item>
-                    <el-menu-item index="/article">阅读</el-menu-item>
-                </el-menu>
-          </el-col>
-        </el-row>  
+          <!--第二级导航栏-->
+          <el-row type="flex" justify="center">
+              <el-col class="hidden-sm-and-down" :md="20">
+                    <el-menu 
+                      default-active="defaultActive" 
+                        mode="horizontal" 
+                      active-text-color="#345dc2"
+                      background-color="#fafafa"
+                      router
+                    >
+                        <el-menu-item index="/recommended">综合</el-menu-item>
+                        <el-menu-item index="/following">关注</el-menu-item>
+                        <el-menu-item index="/backend">后端</el-menu-item>
+                        <el-menu-item index="/frontend">前端</el-menu-item>
+                        <el-menu-item index="/android">Android</el-menu-item>
+                        <el-menu-item index="/ios">iOS</el-menu-item>
+                        <el-menu-item index="/ai">人工智能</el-menu-item>
+                        <el-menu-item index="/freebie">开发工具</el-menu-item>
+                        <el-menu-item index="/career">代码人生</el-menu-item>
+                        <el-menu-item index="/article">阅读</el-menu-item>
+                    </el-menu>
+              </el-col>
+          </el-row>  
       </div>
   </div>
 </template>
 <script>
+// import { userInfo } from 'os';
+// import { computed } from 'vue';
 
+      // computed: {
+      //   userInfo(){
+      //     return this.$store.state.userInfo
+      //   },
+
+      //   defaultActive(){
+      //     let routePath = this.$route.matched[0].path || '/'
+      //     if(routePath.indexOf('/', 1)!== -1){
+      //       routePath = routePath.substring(0, routePath.indexOf('/', 1))
+      //     }
+      //     return routePath.indexOf('/article') !== -1 ? '/' :routePath
+      //   }
+      // }
 </script>   
 <style scoped>
 /* 头部 */
 .header {
   width: 100%;
-  height: 70px;
-  border-top: 3px solid #345dc2;
+  height: 131px;
   background-color: #fafafa;
   box-shadow: 0 2px 10px rgba(0, 0, 0, .12);
   z-index: 1501;
@@ -82,9 +97,9 @@
 
 /* 导航 */
 .header {
-  max-width: 98%;
+  max-width: 100%;
   /* 居中 */
-  margin: 10px; 
+  margin: 0px; 
   padding: 5px;
 } 
 .nav {
