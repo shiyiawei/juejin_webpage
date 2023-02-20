@@ -1,0 +1,78 @@
+
+ /*  文章列表 */
+ .note-list {
+  margin: 0;
+  padding: 0px;
+  list-style: none; /*去除 li 圆点*/
+}
+.note-list li{
+  position: relative;
+  width: 100%;
+  margin: 0 0 15px;
+  padding: 15px 2px 20px 0;
+  border-bottom: 1px solid #f0f0f0;
+  word-wrap: break-word; /*自动换行 */
+}
+
+.note-list .title {
+  margin: 7px 0 4px;
+  display: inherit;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+/* 点击标题后的效果 */
+.note-list .title:visited {
+  color: #969696;
+}
+
+/* 简介 */
+.note-list .abstract {
+  margin: 0 0 8px;
+  font-size: 14px;
+  line-height: 24px;
+  color: #999;
+}
+
+/* 统计 */
+.note-list .meta {
+  /* padding-right: 0!important; */
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 20px;
+}
+.note-list .meta span {
+  margin-right: 10px;
+  color: #b4b4b4;
+}
+
+.note-list .meta a {
+  margin-right: 10px;
+  color: #b4b4b4;
+}
+
+/* 图片 */
+.note-list .have-img .content {
+  padding-right: 165px;
+}
+.note-list li.have-img {
+  min-height: 130px;
+}
+.note-list .have-img .wrap-img {
+  position: absolute;
+  top: 50%;
+  margin-top: -60px;
+  right: 5px;
+  width: 150px;
+  height: 100px;
+}
+.note-list .have-img .wrap-img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  border: 1px solid #f0f0f0;
+}
+
+.page {
+  margin-top: 15px;
+}

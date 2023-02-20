@@ -1,0 +1,30 @@
+
+.article-left {
+    margin: 0 15px;
+}
+.article-left .el-card {
+    padding: 15px;
+    margin-bottom: 10px;
+}
+/* 文章标题 */
+.article-title h1{
+    font-size: 30px;
+    font-weight: 700;
+    margin-top: 0px;
+}
+.article-count{
+    font-size: 14px;
+    line-height: 24px;
+    color: #999;
+}
+
+.article-content {
+    margin-top: 30px;
+}
+.article-comment {
+    margin-top: 40px;
+}
+/* 表情不会被遮住 */
+.el-card{
+    overflow: visible;
+}

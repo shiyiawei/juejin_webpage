@@ -1,0 +1,13 @@
+/* 中间区域 */
+.blog-center {
+  margin: 0 10px;
+}
+  
+/* 右侧课程推荐 */
+.right-card {
+margin-top: 0;
+}
+.right-card img{
+  width: 100%;
+  display: block;
+}
