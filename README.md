@@ -10,10 +10,14 @@ main是主分支，大家可以直接拉取开发（亦可在本项目仓库创�
 # 项目选型
 本项目使用Nuxt.js实现仿掘金页面的服务端渲染，Nuxt版本选用 Nuxt @ v2.16.1
 
+# 双端技术
 借助axios进行服务器双端异步通讯、vuex进行路由状态管理。
 
+# 技术栈说明
 | 前端技术 | 说明 | 官网 |
 | --- | --- | --- |
+| scss | 类css样式 | https://www.sass.hk/ |
+| JavaScript | 页面脚本 | https://tc39.es/ |
 | Vue.js | 前端框架 | https://vuejs.org/ |
 | Vue-router |  路由框架 | https://router.vuejs.org/ |
 | Vuex | 全局状态管理框架 | https://vuex.vuejs.org/ |
