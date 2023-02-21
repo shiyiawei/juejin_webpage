@@ -79,7 +79,7 @@ export default {
         this.isTopbarBlock === false && this.UPDATE_TOPBAR_BLOCK(true)
         window.scrollTo({ top: 0 })
         this.$router.push({
-          name: 'timeline-title',
+          name: 'main-title',
           params: {
             title: item.category_url
           }

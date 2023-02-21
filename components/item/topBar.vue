@@ -99,8 +99,6 @@ export default {
     created() {
         if (process.client) {
             this.white = localStorage.getItem('isWhite')
-            // console.log('topicWhite', this.topicWhite);
-            // console.log('w', this.isWhite)
         }
     },
     mounted() {
@@ -149,25 +147,11 @@ export default {
         }
     },
     methods: {
-        // 下拉菜单
-        handleCommand(command) {
-            this.$router.push(command.link)
-        },
+       
         ...mapMutations({
             'UPDATE_TOPBAR_BLOCK': 'UPDATE_TOPBAR_BLOCK',
             'SET_LANG': 'locale/SET_LANG'
         }),
-        sreachHandler() {
-            this.$router.push({
-                name: 'search',
-                query: {
-                    keyword: this.keyword
-                }
-            })
-        },
-        showLoginModal() {
-            this.$loginModal(this)
-        },
         // 切换主题
         ...mapMutations(["changeTopicFn"]),
         changeTopic() {

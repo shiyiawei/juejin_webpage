@@ -40,7 +40,7 @@ export default {
   },
   methods: {
     getUrl(url) {
-      return `http://lzzzs.top:1337${url}`
+      return `http://localhost:1337${url}`
     }
   },
   computed: {

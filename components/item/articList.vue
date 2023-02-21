@@ -4,12 +4,6 @@
       <li class="artic-item--border">
         <artic-item :item.sync="item"></artic-item>
       </li>
-      <!-- <div v-if="item.item_type == 2" class="artic-item--border" :key="index">
-        <artic-item :item.sync="list[index].item_info"></artic-item>
-      </div>
-      <div v-else-if="item.item_type == undefined" class="artic-item--border" :key="index">
-        <artic-item :item.sync="list[index]"></artic-item>
-      </div> -->
     </ul>
   </div>
 </template>

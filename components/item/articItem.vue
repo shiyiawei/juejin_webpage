@@ -4,11 +4,8 @@
       <ul class="artic-item__meta">
         <li class="meta-item">
           <span class="meta-item__username">
-            <nuxt-link
-              :to="'/user/' + uid"
-              target="_blank"
-              @click.native="(e) => e.stopPropagation()"
-            >{{ item.attributes.author.data.attributes.user_name }}
+            <nuxt-link :to="'/user/' + uid" target="_blank" @click.native="(e) => e.stopPropagation()">{{
+              item.attributes.author.data.attributes.user_name }}
             </nuxt-link>
           </span>
         </li>
@@ -19,35 +16,15 @@
           </template>
         </li> -->
       </ul>
-      <p
-        class="artic-item__title ellipsis"
-        v-html="highlight.title || item.attributes.title"
-      ></p>
-      <p
-        class="artic-item__desc"
-        v-html="
-          highlight.description ||
-            highlight.text ||
-            item.attributes.brief_content
-        "
-      ></p>
-      <!-- <ul class="artic-item__action">
-        <li class="action-item" :class="{active: item.attributes[likeField]}" @click.stop="articleLike">
-          <img v-if="item.attributes[likeField]" class="action-item__icon" src="~assets/images/png/like.png">
-          <img v-else class="action-item__icon" src="~assets/images/png/like.png">
-          {{ item.attributes[likeCountField] }}
-        </li>
-        <li class="action-item" @click.stop="toDetail('#comment')">
-          <img class="action-item__icon" src="~assets/images/png/comment.png">
-          {{ item.attributes.comment_count }}
-        </li>
-      </ul> -->
+      <p class="artic-item__title ellipsis" v-html="highlight.title || item.attributes.title"></p>
+      <p class="artic-item__desc" v-html="
+        highlight.description ||
+        highlight.text ||
+        item.attributes.brief_content
+      "></p>
     </div>
-    <img
-      v-if="item.attributes.cover_image"
-      :src="getUrl(item.attributes.cover_image.data.attributes.url)"
-      class="artic-item__cover"
-    />
+    <img v-if="item.attributes.cover_image" :src="getUrl(item.attributes.cover_image.data.attributes.url)"
+      class="artic-item__cover" />
   </div>
 </template>
 
@@ -97,7 +74,7 @@ export default {
   },
   methods: {
     getUrl(url) {
-      return `http://lzzzs.top:1337${url}`;
+      return `http://localhost:1337${url}`;
     },
     toDetail(hash = "") {
       console.log("走进了articleItem.vue的toDetail方法里面");
