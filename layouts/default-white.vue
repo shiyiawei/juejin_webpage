@@ -1,7 +1,7 @@
 <template>
-    <div >
-        <j-header/>
-        <main class="j-main">
+    <div class="top">
+        <top-bar></top-bar>
+        <main>
             <nuxt />
         </main>
         <el-backtop :bottom="80"></el-backtop>
@@ -9,14 +9,11 @@
 </template>
   
 <script>
-import JHeader from '@/components/layout/Header'
-export default {
-    components: {
-        JHeader
-    }
-}
 </script>
   
 <style>
+.top {
+    background-color: #fff;
+    min-height: 100vh;
+}
 </style>
-  

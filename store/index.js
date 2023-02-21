@@ -11,7 +11,7 @@ export const mutations = {
   },
   changeTopicFn(state) {
     if (state.isWhite === true) {
-      // 白色变成黑色
+      // 主题色转换
       state.isWhite = false
     } else {
       state.isWhite = true
