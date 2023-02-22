@@ -5,10 +5,10 @@
 git clone https://github.com/shiyiawei/juejin_webpage.git
 
 # 项目合作 
-main是主分支，大家可以直接拉取开发（亦可在本项目仓库创建一个新的分支，做完对应功能上传再请求合并到main分支）
+项目借鉴了@ChanWahFung大佬的nuxtjs项目（项目地址：  https://github.com/ChanWahFung/nuxt-juejin-project  ），由第五届青训营队伍十行代码全写队重构、优化完成，感谢各位的参与！
 
 # 项目选型
-本项目使用Nuxt.js实现仿掘金页面的服务端渲染，Nuxt版本选用 Nuxt @ v2.15.8
+本项目使用Nuxt.js实现仿掘金页面的服务端渲染，Nuxt版本选用 Nuxt @ v2.15.8，部分组件使用ElementUI实现。
 
 # 双端技术
 借助axios进行服务器双端异步通讯、vuex进行路由状态管理。
