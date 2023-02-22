@@ -32,6 +32,11 @@ main是主分支，大家可以直接拉取开发（亦可在本项目仓库创�
 | Node.js | 后端数据接口 | https://nodejs.org/en/ |
 | strapi | 后台管理面板 | https://getstrapi.cn/ |
 
+# 项目答辩汇报文档
+https://kyvnz1omg4.feishu.cn/docx/ONYkdmnLyo6gWhxaMbnczIX5nIc?from=from_copylink
+
+感谢@M（https://github.com/lj-M-github）同学的鼎力合作！
+
 # Build Setup
 
 ```bash

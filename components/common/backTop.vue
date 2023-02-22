@@ -21,7 +21,6 @@ export default {
       window.scrollTo({
         top: 0
       })
-      // 解决置顶后导航栏不显示
       this.UPDATE_TOPBAR_BLOCK(true)
     }
   }

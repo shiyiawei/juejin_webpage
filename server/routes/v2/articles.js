@@ -110,7 +110,6 @@ router.get('/userPost', validator({
 router.get('/relatedEntry', validator({
   tag_id: { type: 'string', required: true }
 }), async (ctx, next) => {
-  // console.log("articles里面的relatedEntry方法调用了")
   const data = ctx.query
   const options = {
     url: `http://lzzzs.top:1337/api/header-tags/${data.tag_id}?populate=deep`,
