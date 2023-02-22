@@ -1,7 +1,8 @@
 <template>
   <header class="topbar__wrapper">
     <div class="topbar" ref="topbar"
-      :class="['topbar--' + (isTopbarBlock ? 'show' : 'hidden'), topicWhite ? 'topBarDay' : 'topBarNight']">
+         :class="['topbar--' + (isTopbarBlock ? 'show' : 'hidden'), topicWhite ? 'topBarDay' : 'topBarNight']" 
+    >
       <div class="topbar__main">
         <nuxt-link to="/timeline" class="logo">
           <img src="~/assets/images/png/logo.svg" alt="掘金">
@@ -14,13 +15,24 @@
             </div>
           </nuxt-link>
         </ul>
+        <div class="show" ref="show">
+          <el-dropdown @command="handleCommand">
+            <span class="el-dropdown-link">
+              更多<i class="el-icon-arrow-down el-icon--right"></i>
+            </span>
+            <el-dropdown-menu slot="dropdown">
+              <el-dropdown-item :command="item" ref="navItem" v-for="(item, index) in arr" :key="index">{{ $t('topbar.' + item.name) }}</el-dropdown-item>
+            </el-dropdown-menu>
+          </el-dropdown>
+        </div>
         <template v-if="userInfo">
           <nuxt-link to="/notice" class="notice" target="_blank">
             <div class="notice__icon"></div>
             <span class="notice__count" v-if="noticeNum > 0">{{ noticeNumTip }}</span>
           </nuxt-link>
           <div class="user-entry" :style="`background-image:url(${userInfo.avatarLarge})`"
-            @click="isShowNavMenu = !isShowNavMenu">
+               @click="isShowNavMenu = !isShowNavMenu"
+          >
             <ul v-show="isShowNavMenu" class="nav-menu shadow">
               <li class="nav-item">
                 <nuxt-link :to="'/user/' + userInfo.objectId">
@@ -65,7 +77,7 @@ export default {
           link: '/pins'
         },
         {
-          name: 'book',
+          name: 'course',
           link: '/course'
         },
         {
@@ -73,7 +85,7 @@ export default {
           link: '/live'
         },
         {
-          name: 'topic',
+          name: 'events',
           link: '/events/all'
         },
         {
@@ -123,8 +135,6 @@ export default {
   created() {
     if (process.client) {
       this.white = localStorage.getItem('isWhite')
-      // console.log('topicWhite', this.topicWhite);
-      // console.log('w', this.isWhite)
     }
   },
   mounted() {

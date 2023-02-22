@@ -20,7 +20,7 @@
       </div>
     </div>
     <nuxt-link to="/recommendation/authors/recommended">
-      <div :class="[isWhite? 'topBarDay':'topBarNight', 'author-block__footer']" >
+      <div :class="[isWhite? 'topBarDay':'topBarNight', 'author-block__footer']">
         <el button>完整榜单</el>
       </div>
     </nuxt-link>
@@ -39,7 +39,7 @@ export default {
   methods: {
     getUrl(url){
       return `http://lzzzs.top:1337${url}`
-    }
+    },
   },
   computed: {
     ...mapState(['isWhite'])

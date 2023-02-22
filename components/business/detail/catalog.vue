@@ -1,7 +1,7 @@
 <template>
   <div class="catalog" :class="[{'catalog--sticky': isSticky}, {'is-topbar-block': isTopbarBlock}]" @scroll.stop="()=>{}">
     <div v-show="catalogData.length" :class="[isWhite? 'topBarDay':'topBarNight', 'catalog__title']">
-       <div class="title">目录</div> 
+      <div class="title">目录</div> 
     </div>
     <div class="catalog__body">
       <ul class="catalog__list">

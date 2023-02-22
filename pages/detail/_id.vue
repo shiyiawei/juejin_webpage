@@ -24,7 +24,7 @@
                 target="_blank"
               >
                 <span style="margin-right: 10px">
-                  {{articDetail.attributes.author.data.attributes.user_name}}
+                  {{ articDetail.attributes.author.data.attributes.user_name }}
                 </span>
                 <level
                   :level="articDetail.attributes.author.data.attributes.level"
@@ -32,7 +32,7 @@
               </nuxt-link>
               <div class="detail__user__meta">
                 <span class="meta__time">
-                  {{articDetail.attributes.ctime | formatTime}}
+                  {{ articDetail.attributes.ctime | formatTime }}
                 </span>
                 <span>阅读{{ articDetail.attributes.view_count }}</span>
               </div>
@@ -40,9 +40,9 @@
           </div>
           <div>
             <img
-            v-if="articDetail.attributes.cover_image"
-            :style="`background-image: url(${articDetail.attributes.cover_image.data.attributes.url})`"
-            class="detail__cover"
+              v-if="articDetail.attributes.cover_image"
+              :style="`background-image: url(${articDetail.attributes.cover_image.data.attributes.url})`"
+              class="detail__cover"
             />
           </div>
           <div :class="[isWhite? 'topBarDay':'topBarNight', 'detail__content']" v-html="content"></div>
@@ -72,7 +72,7 @@ import aboutArticle from "~/components/business/detail/aboutArticle.vue";
 import catalog from "~/components/business/detail/catalog.vue";
 export default {
   async asyncData({ app, params }) {
-    console.log("111111");
+    console.log("got detail");
     const articDetail = await app.$api
       .getDetail({
         article_id: params.id,

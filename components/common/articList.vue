@@ -26,7 +26,7 @@ export default {
     }
   },
   created() {
-    console.log('fjakld', this.isWhite);
+    console.log('thisiswhite', this.isWhite);
   },
   methods: {
   },

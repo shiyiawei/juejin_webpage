@@ -157,7 +157,7 @@ export default {
     };
   },
   created() {
-    console.log(this.isWhite, 'thisiswhite');
+    console.log('thisiswhite', this.isWhite);
   },
   computed: {
     ...mapState('category', ['timelineCategoryList']),

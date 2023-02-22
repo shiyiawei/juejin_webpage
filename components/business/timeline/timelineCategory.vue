@@ -11,7 +11,6 @@
         >
           <span>{{ item.category_name }}</span>
         </li>
-        <nuxt-link v-if="token" tag="li" to="/subscribe" class="nav-item" style="margin-left: auto;">标签管理</nuxt-link>
       </ul>
       <div class="show" ref="show">
         <el-dropdown @command="handleCommand">
@@ -23,6 +22,7 @@
           </el-dropdown-menu>
         </el-dropdown>
       </div>
+      <nuxt-link v-if="token" tag="li" to="/subscribe" class="nav-item" style="margin-left: auto;">标签管理</nuxt-link>
     </div>
   </nav>
 </template>

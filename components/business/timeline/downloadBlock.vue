@@ -21,7 +21,7 @@ export default {
     ...mapState(['isWhite'])
   },
   created() {
-    console.log('w', this.isWhite);
+    console.log('thisiswhite', this.isWhite);
   }
 }
 

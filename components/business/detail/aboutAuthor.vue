@@ -18,12 +18,12 @@
         </div>
       </nuxt-link>
       <div class="follow">
-          <div class="following">
-            <el-button type="primary" >关注</el-button>
-          </div>
-          <div class="chatting">
-            <el-button type="primary" plain >私信</el-button>
-          </div>
+        <div class="following">
+          <el-button type="primary">关注</el-button>
+        </div>
+        <div class="chatting">
+          <el-button type="primary" plain>私信</el-button>
+        </div>
       </div>
           
       <div :class="[isWhite? 'topBarDay':'topBarNight', 'author__meta']">
