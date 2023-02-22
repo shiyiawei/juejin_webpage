@@ -1,19 +1,17 @@
 <template>
-    <div class="top">
-        <top-bar></top-bar>
-        <main>
-            <nuxt />
-        </main>
-        <el-backtop :bottom="80"></el-backtop>
-    </div>
+  <div style="background-color: #fff;min-height: 100vh;">
+    <top-bar></top-bar>
+    <main class="main">
+      <nuxt />
+    </main>
+    <back-top></back-top>
+  </div>
 </template>
-  
+
 <script>
-</script>
-  
-<style>
-.top {
-    background-color: #fff;
-    min-height: 100vh;
+export default {
 }
+</script>
+
+<style>
 </style>

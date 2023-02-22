@@ -1,40 +1,84 @@
- module.exports = {
-  // Global page headers: https://go.nuxtjs.dev/config-head
+module.exports = {
+  /*
+   ** Server configuration
+   */
+  server: {
+    port: 8000,
+    host: "127.0.0.1",
+  },
+  /*
+   ** Environment variable configuration
+   */
+  env: {
+    baseUrl: "http://127.0.0.1:8000",
+  },
+  /*
+   ** Router configuration
+   */
+  router: {
+    middleware: ["i18n"],
+    extendRoutes(routes, resolve) {
+      routes.push({
+        path: "/",
+        redirect: {
+          name: "timeline-title",
+        },
+      });
+    },
+  },
+  telemetry: false,
+  /*
+   ** Headers of the page
+   */
   head: {
-    title: '仿掘金网站',
+    title: "掘金",
     meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '基于NUXTJS及NodeJS开发' },
-      { name: 'format-detection', content: 'telephone=no' }
+      { charset: "utf-8" },
+      {
+        name: "viewport",
+        content:
+          "width=device-width,initial-scale=1,user-scalable=no,viewport-fit=cover",
+      },
+      { name: "referrer", content: "never" },
+      {
+        hid: "keywords",
+        name: "keywords",
+        content:
+          "掘金,稀土,Vue.js,微信小程序,Kotlin,RxJava,React Native,Wireshark,敏捷开发,Bootstrap,OKHttp,正则表达式,WebGL,Webpack,Docker,MVVM",
+      },
+      {
+        hid: "description",
+        name: "description",
+        content:
+          "掘金是一个帮助开发者成长的社区，是给开发者用的 Hacker News，给设计师用的 Designer News，和给产品经理用的 Medium。掘金的技术文章由稀土上聚集的技术大牛和极客共同编辑为你筛选出最优质的干货，其中包括：Android、iOS、前端、后端等方面的内容。用户每天都可以在这里找到技术世界的头条内容。与此同时，掘金内还有沸点、掘金翻译计划、线下活动、专栏文章等内容。即使你是 GitHub、StackOverflow、开源中国的用户，我们相信你也可以在这里有所收获。",
+      },
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '~/static/juejin.png' },
+      { rel: "icon", type: "image/x-icon", href: "/juejin.png" },
       {
         rel: "stylesheet",
         href: "//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/styles/atom-one-light.min.css",
       },
-    ]
+    ],
   },
-
-  // Global CSS: https://go.nuxtjs.dev/config-css
+  /*
+   ** Customize the progress-bar color
+   */
+  loading: {
+    color: "#007fff",
+  },
+  /*
+   ** Global CSS
+   */
   css: [
-    // 全局引入样式
-    // 针对elementui引入
-    'element-ui/lib/theme-chalk/index.css',
-    // 布局样式
-    'element-ui/lib/theme-chalk/display.css',
-    // 项目自定义全局样式
-    '@/assets/css/scss/global.scss',
-    // 系统重置样式
-    '@/assets/css/main/reset.css',
-    // 页面样式
-    '@/assets/css/main/page-transition.css',
-    // 黑白主题样式
-    '@/assets/css/main/topic.css',
+    "~/assets/css/reset.css",
+    "~/assets/css/page-transition.css",
+    "~/assets/scss/global.scss",
+    "~/assets/css/topic.css",
   ],
-
-  // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
+  /*
+   ** Plugins to load before mounting the App
+   */
   plugins: [
     '~/plugins/element-ui.js',
     "~/plugins/axios.js",
@@ -43,33 +87,36 @@
     "~/plugins/vue-global.js",
     "~/plugins/i18n.js"
   ],
-
-  // Auto import components: https://go.nuxtjs.dev/config-components
-  components: true,
-
-  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
+  /*
+   ** Nuxt.js dev-modules
+   */
   buildModules: [
+    // Doc: https://github.com/nuxt-community/eslint-module
     "@nuxtjs/eslint-module",
     "@nuxt/postcss8",
   ],
-
-  // Modules: https://go.nuxtjs.dev/config-modules
+  /*
+   ** Nuxt.js modules
+   */
   modules: [
-    '@nuxtjs/axios',
+    // Doc: https://axios.nuxtjs.org/usage
+    "@nuxtjs/axios",
     "@nuxtjs/style-resources",
     "cookie-universal-nuxt",
   ],
-
+  styleResources: {
+    scss: ["~/assets/scss/variable.scss"],
+  },
+  serverMiddleware: [],
+  /*
+   ** Axios module configuration
+   ** See https://axios.nuxtjs.org/options
+   */
   axios: {
   },
-
-  serverMiddleware: [],
-
-  styleResources: {
-      scss: ["~/assets/css/scss/variable.scss"],
-  },
-
-  // Build Configuration: https://go.nuxtjs.dev/config-build
+  /*
+   ** Build configuration
+   */
   build: {
     /*
      ** You can extend webpack config here
@@ -87,25 +134,4 @@
     },
     extend(config, ctx) {},
   },
-
-  server: {
-    port: 3000,
-    host: "127.0.0.1",
-  },
-
-  env: {
-    baseUrl: "http://127.0.0.1:3000",
-  },
-
-  router: {
-    middleware: ["i18n"],
-    extendRoutes(routes, resolve) {
-      routes.push({
-        path: "/",
-      });
-    },
-  },
-  telemetry: false,
-
-}
-
+};

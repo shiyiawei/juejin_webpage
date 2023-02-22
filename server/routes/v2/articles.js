@@ -13,7 +13,7 @@ router.get('/detail', validator({
 }), async (ctx, next) => {
   const data = ctx.query
   const options = {
-    url: `http://localhost:1337/api/articles/${data.article_id}?populate=deep`,
+    url: `http://lzzzs.top:1337/api/articles/${data.article_id}?populate=deep`,
     method: "GET",
   };
   let { body } = await request(options);
@@ -31,7 +31,7 @@ router.get('/detail', validator({
 router.get('/indexList', validator({
 }), async (ctx, next) => {
   const options = {
-    url: `http://localhost:1337/api/articles/?populate=deep`,
+    url: `http://lzzzs.top:1337/api/articles/?populate=deep`,
     method: "GET",
   };
   let { body } = await request(options);
@@ -113,7 +113,7 @@ router.get('/relatedEntry', validator({
   // console.log("articles里面的relatedEntry方法调用了")
   const data = ctx.query
   const options = {
-    url: `http://localhost:1337/api/header-tags/${data.tag_id}?populate=deep`,
+    url: `http://lzzzs.top:1337/api/header-tags/${data.tag_id}?populate=deep`,
     method: "GET",
   };
   let { body } = await request(options);

@@ -1,10 +1,11 @@
 export const state = () => ({
   timelineCategoryList: [],  // 首页分类列表
   recommendCategoryList: [], // 作者榜单分类列表
+  bookCategoryList: [],      // 小册分类列表
   pinCategoryList: [         // 沸点分类列表
     {
       topic_id: 'recommend',
-      title: '推荐',
+      title: '最新',
       path: '/pins/recommend'
     },
     {

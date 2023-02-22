@@ -27,7 +27,7 @@
 
 <script>
 import reachBottom from '~/mixins/reachBottom'
-import subscribeNav from '~/components/layout/subscribe/subscribeNav'
+import subscribeNav from '~/components/business/subscribe/subscribeNav'
 
 export default {  
   async asyncData({ app, params }) {

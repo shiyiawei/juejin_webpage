@@ -7,7 +7,7 @@ const validator = require('../../middleware/validator')
 // 获取标签页面
 router.get('/tags',async (ctx, next) => {
   const options = {
-    url: `http://localhost:1337/api/tags`,
+    url: `http://lzzzs.top:1337/api/tags`,
     method: "GET",
   };
   let { body } = await request(options)

@@ -25,8 +25,8 @@
 
 <script>
 import { mapState } from 'vuex'
-import pinCategory from '~/components/layout/pins/pinCategory'
-import recommendPin from '~/components/layout/pins/recommendPin'
+import pinCategory from '~/components/business/pins/pinCategory'
+import recommendPin from '~/components/business/pins/recommendPin'
 
 export default {
   async asyncData({ app, store }) {

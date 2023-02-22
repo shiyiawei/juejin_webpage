@@ -2,11 +2,17 @@
   "topbar": {
     "home": "Home",
     "pin": "Pins",
-    "course": "Course",
+    "book": "Course",
     "live": "Live",
-    "events/all": "Events",
+    "topic": "Events",
     "challenge": "Challenge",
     "shop": "Shop",
     "app": "APP"
+  },
+  "menu": {
+    "home": "My homepage",
+    "label": "Label management",
+    "logout": "Logout",
+    "login": "Login"
   }
 }
