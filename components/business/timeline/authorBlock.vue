@@ -21,7 +21,7 @@
     </div>
     <nuxt-link to="/recommendation/authors/recommended">
       <div :class="[isWhite? 'topBarDay':'topBarNight', 'author-block__footer']">
-        <el button>完整榜单</el>
+        <el-button type="text">完整榜单</el-button>
       </div>
     </nuxt-link>
   </div>
@@ -38,8 +38,8 @@ export default {
   },
   methods: {
     getUrl(url){
-      return `http://lzzzs.top:1337${url}`
-    },
+      return `http://localhost:1337${url}`
+    }
   },
   computed: {
     ...mapState(['isWhite'])
@@ -76,6 +76,7 @@ export default {
       border-left-color: transparent;
       border-bottom-color: transparent;
       transform: rotate(45deg);
+      color:rgb(31, 173, 255)
     }
   }
 

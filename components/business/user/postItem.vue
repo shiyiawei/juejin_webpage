@@ -6,12 +6,12 @@
       </div>
       <span>{{ item.author_user_info.user_name }} · {{ item.article_info.ctime | formatTime }}</span>
     </div>
-    <nuxt-link :to="'/detail/'+detailId" class="post-item__cover" v-if="item.author_user_info.cover_image" :style="{'background-image': `url(${item.author_user_info.cover_image})`}" target="_blank"></nuxt-link>
+    <nuxt-link :to="'/detail/'+detailId" class="post-item__cover" v-if="item.author_user_info.image" :style="{'background-image': `url(${item.author_user_info.image})`}" target="_blank"></nuxt-link>
     <h1 class="post-item__title">
       <nuxt-link :to="'/detail/'+detailId" target="_blank">{{ item.article_info.title }}</nuxt-link>
     </h1>
     <p class="post-item__content">
-      <nuxt-link :to="'/detail/'+detailId" target="_blank">{{ item.article_info.brief_content }}</nuxt-link>
+      <nuxt-link :to="'/detail/'+detailId" target="_blank">{{ item.article_info.description }}</nuxt-link>
     </p>
     <div class="post-item__mate">
       <ul class="meta__action">

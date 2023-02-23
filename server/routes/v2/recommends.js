@@ -10,14 +10,14 @@ const validator = require('../../middleware/validator')
  * @param {number} cursor - 分页标识
  * @param {string} category_id - 类目
  */
-router.get('/authorBlock',async (ctx, next) => {
-  ctx.set('Cache-Control', 'max-age=60')
-  const options = {
-    url: `http://lzzzs.top:1337/api/authors?populate=deep`,
-    method: "GET",
-  };
-  let { body } = await request(options)
-  ctx.body = body
+router.get('/authorBlock', async(ctx, next) => {
+    ctx.set('Cache-Control', 'max-age=60')
+    const options = {
+        url: `http://localhost:1337/api/authors?populate=deep`,
+        method: "GET",
+    };
+    let { body } = await request(options)
+    ctx.body = body
 })
 
 /**
@@ -26,14 +26,14 @@ router.get('/authorBlock',async (ctx, next) => {
  * @param {number} cursor - 分页标识
  * @param {string} category_id - 类目
  */
-router.get('/banerBlock',async (ctx, next) => {
-  ctx.set('Cache-Control', 'max-age=60')
-  const options = {
-    url: `http://lzzzs.top:1337/api/advertisement-pics?populate=deep`,
-    method: "GET",
-  };
-  let { body } = await request(options)
-  ctx.body = body
+router.get('/banerBlock', async(ctx, next) => {
+    ctx.set('Cache-Control', 'max-age=60')
+    const options = {
+        url: `http://localhost:1337/api/ads?populate=deep`,
+        method: "GET",
+    };
+    let { body } = await request(options)
+    ctx.body = body
 })
 
 
@@ -44,48 +44,48 @@ router.get('/banerBlock',async (ctx, next) => {
  * @param {string} category_id - 类目
  */
 router.get('/recommendAuthor', validator({
-  limit: {
-    type: 'string',
-    required: true,
-    validator: (rule, value) => Number(value) > 0,
-    message: 'limit 需传入正整数'
-  },
-  cursor: { type: 'string' },
-  category_id: { type: 'string' }
-}), async (ctx, next) => {
-  ctx.set('Cache-Control', 'max-age=60')
-  const data = ctx.query
-  const options = {
-    url: `${apiJuejin}user_api/v1/author/recommend`,
-    method: "GET",
-    params: {
-      category_id: data.category_id || '',
-      cursor: data.cursor || 0,
-      limit: data.limit || 20,
-    }
-  };
-  let { body } = await request(options)
-  ctx.body = body
+    limit: {
+        type: 'string',
+        required: true,
+        validator: (rule, value) => Number(value) > 0,
+        message: 'limit 需传入正整数'
+    },
+    cursor: { type: 'string' },
+    category_id: { type: 'string' }
+}), async(ctx, next) => {
+    ctx.set('Cache-Control', 'max-age=60')
+    const data = ctx.query
+    const options = {
+        url: `${apiJuejin}user_api/v1/author/recommend`,
+        method: "GET",
+        params: {
+            category_id: data.category_id || '',
+            cursor: data.cursor || 0,
+            limit: data.limit || 20,
+        }
+    };
+    let { body } = await request(options)
+    ctx.body = body
 })
 
 /**
  * 推荐小册
  */
-router.get('/books', async (ctx, next) => {
-  const headers = ctx.headers
-  const options = {
-    url: 'https://xiaoce-timeline-api-ms.juejin.im/v1/getRecommendBooks',
-    method: 'GET',
-    params: {
-      src: 'web',
-      uid: headers['x-uid'],
-      client_id: headers['x-device-id'],
-      token: headers['x-token'],
-      category: '5562b428e4b00c57d9b94b9d'
+router.get('/books', async(ctx, next) => {
+    const headers = ctx.headers
+    const options = {
+        url: 'https://xiaoce-timeline-api-ms.juejin.im/v1/getRecommendBooks',
+        method: 'GET',
+        params: {
+            src: 'web',
+            uid: headers['x-uid'],
+            client_id: headers['x-device-id'],
+            token: headers['x-token'],
+            category: '5562b428e4b00c57d9b94b9d'
+        }
     }
-  }
-  let { body } = await request(options)
-  ctx.body = body
+    let { body } = await request(options)
+    ctx.body = body
 })
 
 module.exports = router

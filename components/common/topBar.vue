@@ -1,20 +1,21 @@
 <template>
   <header class="topbar__wrapper">
     <div class="topbar" ref="topbar"
-         :class="['topbar--' + (isTopbarBlock ? 'show' : 'hidden'), topicWhite ? 'topBarDay' : 'topBarNight']" 
+         :class="['topbar--' + (isTopbarBlock ? 'show' : 'hidden'), topicWhite ? 'topBarDay' : 'topBarNight']"
     >
       <div class="topbar__main">
         <nuxt-link to="/timeline" class="logo">
           <img src="~/assets/images/png/logo.svg" alt="掘金">
         </nuxt-link>
         <ul class="navs">
-          <nuxt-link v-for="item in navList" :key="item.id" :to="item.link" tag="li" class="nav-item">
+          <nuxt-link v-for="item in navList1" :key="item.id" :to="item.link" tag="li" class="nav-item">
             <div class="position_div">
               <span>{{ $t('topbar.' + item.name) }}</span>
               <span class="top_message" v-if="item.topContent">{{ item.topContent }}</span>
             </div>
           </nuxt-link>
         </ul>
+
         <div class="show" ref="show">
           <el-dropdown @command="handleCommand">
             <span class="el-dropdown-link">
@@ -25,7 +26,7 @@
             </el-dropdown-menu>
           </el-dropdown>
         </div>
-        <template v-if="userInfo">
+        <!-- <template v-if="userInfo">
           <nuxt-link to="/notice" class="notice" target="_blank">
             <div class="notice__icon"></div>
             <span class="notice__count" v-if="noticeNum > 0">{{ noticeNumTip }}</span>
@@ -54,7 +55,7 @@
               </li>
             </ul>
           </div>
-        </template>
+        </template> -->
       </div>
     </div>
   </header>
@@ -73,7 +74,7 @@ export default {
           link: '/'
         },
         {
-          name: 'pin',
+          name: 'pins',
           link: '/pins'
         },
         {
@@ -85,7 +86,7 @@ export default {
           link: '/live'
         },
         {
-          name: 'events',
+          name: 'topic',
           link: '/events/all'
         },
         {
@@ -99,6 +100,10 @@ export default {
         {
           name: 'APP',
           link: '/app '
+        },
+        {
+          name: 'title',
+          link: '/title'
         }
       ],
       keyword: '',
@@ -107,6 +112,7 @@ export default {
       noticeNum: 0,
       isShowNavMenu: false,
       navList: [],
+      navList1: [],
       arr: [],
       resArr: [],
       white: ''
@@ -127,10 +133,16 @@ export default {
       that.navList.push(item.attributes)
     })
     this.navList.forEach(function (item, index) {
-      if (index > 3) {
-        that.arr.push(item)
+      if (index <= 7) {
+        that.navList1.push(item);
+      }
+      if (index > 7) {
+        that.arr.push(item);
       }
     })
+    if (this.navList.length < 9) {
+        this.$refs.show.style.display = 'none'
+      }
   },
   created() {
     if (process.client) {
@@ -155,7 +167,7 @@ export default {
         this.UPDATE_TOPBAR_BLOCK(true)
       }
       scrollTop = scrollingElement.scrollTop
-    })
+    });
   },
   computed: {
     ...mapState([
@@ -419,7 +431,7 @@ export default {
   // transform: scale(0.8,0.8);
   position: absolute;
   top: 5px;
-  left: 7px;
+  left: 6px;
   z-index: 9;
   white-space: nowrap;
   padding: 2px 7px;
@@ -440,7 +452,7 @@ export default {
 }
 
 .navs {
-  width: 300px;
+  width: 600px;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -461,7 +473,7 @@ export default {
 
 .show {
   text-align: center;
-  margin-left: 20px;
+  margin-left: 10px;
 }
 
 @media screen and (max-width: 980px) {

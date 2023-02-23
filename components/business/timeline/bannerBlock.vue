@@ -25,7 +25,7 @@ export default {
   },
   computed: {
     imgUrl(){
-      return "http://lzzzs.top:1337" + this.banner.attributes.pic.data.attributes.url
+      return "http://localhost:1337" + this.banner.attributes.pic.data.attributes.url
     }
   },
   methods: {

@@ -12,11 +12,10 @@ export const mutations = {
   },
   changeTopicFn(state) {
     if (state.isWhite === true) {
-      // 白切黑
+      // 当前主题是白色则转为黑色
       state.isWhite = false
     } else {
       state.isWhite = true
     }
-    console.log(state.isWhite);
   }
 }

@@ -17,6 +17,7 @@
         <artic-list :list="list"></artic-list>
       </div>
       <div class="index-side">
+        <daKa></daKa>
         <banner-block v-for="item in bannerList" :key="item.id" :banner="item"></banner-block>
         <download-block></download-block>
         <author-block :list="authorList"></author-block>
@@ -32,6 +33,7 @@ import reachBottom from '~/mixins/reachBottom'
 import bannerBlock from '~/components/business/timeline/bannerBlock'
 import authorBlock from '~/components/business/timeline/authorBlock'
 import downloadBlock from '~/components/business/timeline/downloadBlock'
+import daka from '~/components/business/timeline/daka'
 import timelineCategory from '~/components/business/timeline/timelineCategory'
 import infomation from '~/components/business/timeline/info'
 
@@ -106,6 +108,7 @@ export default {
     'download-block': downloadBlock,
     'author-block': authorBlock,
     'infom': infomation,
+    'daKa': daka
   },
   data() {
     return {
@@ -157,7 +160,6 @@ export default {
     };
   },
   created() {
-    console.log('thisiswhite', this.isWhite);
   },
   computed: {
     ...mapState('category', ['timelineCategoryList']),

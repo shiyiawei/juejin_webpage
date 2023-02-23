@@ -1,13 +1,14 @@
 {
   "topbar": {
     "home": "首页",
-    "pin": "沸点",
-    "book": "课程",
+    "pins": "沸点",
+    "course": "课程",
     "live": "直播",
     "topic": "活动",
     "challenge": "竞赛",
     "shop": "商城",
-    "app": "APP"
+    "app": "APP",
+    "title": "新标题"
   },
   "menu": {
     "home": "我的主页",

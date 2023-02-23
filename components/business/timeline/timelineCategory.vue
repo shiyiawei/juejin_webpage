@@ -4,13 +4,16 @@
       <ul class="nav-list">
         <li class="nav-item"
             :class="{'nav-item--active': item.category_url === paramsTitle}"
-            v-for="item in channels"
+            v-for="item in channels1"
             :key="item.category_id"
             @click="navItemClick(item)"
             ref="navItem"
         >
-          <span>{{ item.category_name }}</span>
+          <div style="margin: auto;">
+            <span>{{ item.category_name }}</span>
+          </div>
         </li>
+        <nuxt-link tag="li" to="/subscribe" class="nav-item">标签管理</nuxt-link>
       </ul>
       <div class="show" ref="show">
         <el-dropdown @command="handleCommand">
@@ -22,7 +25,6 @@
           </el-dropdown-menu>
         </el-dropdown>
       </div>
-      <nuxt-link v-if="token" tag="li" to="/subscribe" class="nav-item" style="margin-left: auto;">标签管理</nuxt-link>
     </div>
   </nav>
 </template>
@@ -32,7 +34,8 @@ import { mapState, mapMutations } from 'vuex'
 export default {
   data() {
     return {
-      arr: []
+      arr: [],
+      channels1: []
     }
   },
   props: {
@@ -43,13 +46,16 @@ export default {
   },
   created() {
       this.channels.forEach((item, index) => {
-        if (index > 4) {
-          this.arr.push(item)
+        if (index <= 8){
+          this.channels1.push(item);
+        }
+        if (index > 8) {
+          this.arr.push(item);
         }
       })
   },
   mounted() {
-    if (this.channels.length < 5) {
+    if (this.channels.length < 10) {
       this.$refs.show.style.display = 'none'
     }
   },
@@ -119,19 +125,21 @@ export default {
 }
 
 .nav-list{
-  display: flex;
-  margin-left: 250px;
-  width: 400px;
-  height: 40px;
-  overflow: hidden;
-  position: relative;
+    max-width: 1000px;
+    height: 50px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    line-height: 1;
   .nav-item{
+    margin-left: 10px;
     padding: 15px 0;
     font-size: 14px;
     color: #71777c;
     cursor: pointer;
     display: flex;
-    width: 70px;
+    width: 75px;
     span {
       width: 70px;
     }

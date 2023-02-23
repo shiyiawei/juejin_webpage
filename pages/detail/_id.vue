@@ -40,8 +40,8 @@
           </div>
           <div>
             <img
-              v-if="articDetail.attributes.cover_image"
-              :style="`background-image: url(${articDetail.attributes.cover_image.data.attributes.url})`"
+              v-if="articDetail.attributes.image"
+              :style="`background-image: url(${articDetail.attributes.image.data.attributes.url})`"
               class="detail__cover"
             />
           </div>
@@ -72,7 +72,7 @@ import aboutArticle from "~/components/business/detail/aboutArticle.vue";
 import catalog from "~/components/business/detail/catalog.vue";
 export default {
   async asyncData({ app, params }) {
-    console.log("got detail");
+    console.log("into detail");
     const articDetail = await app.$api
       .getDetail({
         article_id: params.id,
@@ -83,7 +83,7 @@ export default {
     let content = "";
     let info = articDetail.attributes;
     if (info) {
-      content = info.mark_content
+      content = info.content
         ? markdownit({
             html: true,
             linkify: true,
@@ -97,14 +97,14 @@ export default {
               }
               return ""; // 使用额外的默认转义
             },
-          }).render(info.mark_content)
+          }).render(info.content)
         : info.content;
     }
     // 相关文章
     let aboutArticles = null;
     aboutArticles = await app.$api
       .getRelatedEntry({
-        tag_id: articDetail.attributes.header_tags.data.map(
+        tag_id: articDetail.attributes.heads.data.map(
           (item) => item.id
         )[0],
       })

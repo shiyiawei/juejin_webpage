@@ -26,7 +26,7 @@ export default {
     }
   },
   created() {
-    console.log('thisiswhite', this.isWhite);
+    console.log('topicwhit', this.isWhite);
   },
   methods: {
   },

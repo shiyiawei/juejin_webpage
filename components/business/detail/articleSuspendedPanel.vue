@@ -47,20 +47,20 @@ export default {
     // qq分享
     qqShare() {
       if (this.articDetail.article_id) {
-        let { title, cover_image, link_url, brief_content } = this.articDetail.article_info
+        let { title, image, link_url, description } = this.articDetail.article_info
         let { user_name } = this.articDetail.author_user_info
         title = `${title} - ${user_name} - 掘金专栏`
-        let pic = encodeURIComponent(cover_image || 'https://user-gold-cdn.xitu.io/2019/11/29/16eb707805061e9e?w=1000&h=675&f=jpeg&s=99661')
-        window.open(`https://connect.qq.com/widget/shareqq/index.html?title=${title}&url=${link_url}&summary=${brief_content}&pics=${pic}&site=掘金`, '_blank', 'noopener noreferrer')
+        let pic = encodeURIComponent(image || 'https://user-gold-cdn.xitu.io/2019/11/29/16eb707805061e9e?w=1000&h=675&f=jpeg&s=99661')
+        window.open(`https://connect.qq.com/widget/shareqq/index.html?title=${title}&url=${link_url}&summary=${description}&pics=${pic}&site=掘金`, '_blank', 'noopener noreferrer')
       }
     },
     // 微博分享
     weiboShare() {
       if (this.articDetail.article_id) {
-        let { title, cover_image, link_url } = this.articDetail.article_info
+        let { title, image, link_url } = this.articDetail.article_info
         let { user_name } = this.articDetail.author_user_info
         title = `${title} - ${user_name} - 掘金专栏`
-        let pic = encodeURIComponent(cover_image || 'https://user-gold-cdn.xitu.io/2019/11/29/16eb707805061e9e?w=1000&h=675&f=jpeg&s=99661')
+        let pic = encodeURIComponent(image || 'https://user-gold-cdn.xitu.io/2019/11/29/16eb707805061e9e?w=1000&h=675&f=jpeg&s=99661')
         window.open(`https://service.weibo.com/share/share.php?title=${title}&url=${link_url}&pic=${pic}`, '_blank', 'noopener noreferrer')
       }
     }

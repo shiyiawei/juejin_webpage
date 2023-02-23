@@ -28,7 +28,7 @@
         v-html="
           highlight.description ||
             highlight.text ||
-            item.attributes.brief_content
+            item.attributes.description
         "
       ></p>
       <!-- <ul class="artic-item__action">
@@ -44,8 +44,8 @@
       </ul> -->
     </div>
     <img
-      v-if="item.attributes.cover_image"
-      :src="getUrl(item.attributes.cover_image.data.attributes.url)"
+      v-if="item.attributes.image"
+      :src="getUrl(item.attributes.image.data.attributes.url)"
       class="artic-item__cover"
     />
   </div>
@@ -97,22 +97,16 @@ export default {
   },
   methods: {
     getUrl(url) {
-      return `http://lzzzs.top:1337${url}`;
+      return `http://localhost:1337${url}`;
     },
     toDetail(hash = "") {
-      console.log("走进了articleItem.vue的toDetail方法里面");
+      console.log("进入articleItem.vue的toDetail方法里");
       let routeUrl = this.$router.resolve({
         name: "detail-id",
         params: {
           id: this.detailId,
         },
       });
-      console.log(
-        "articleItem.vue的toDetail方法里面的detailId为" + this.detailId
-      );
-      console.log(
-        "articleItem.vue的toDetail方法里面的routeUrl.href为" + routeUrl.href
-      );
       window.open(routeUrl.href + hash, "_blank");
       // window.open("/detail/2" + hash, '_blank')
     },
