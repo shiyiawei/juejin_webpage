@@ -31,7 +31,7 @@
             item.attributes.description
         "
       ></p>
-      <!-- <ul class="artic-item__action">
+      <ul class="artic-item__action">
         <li class="action-item" :class="{active: item.attributes[likeField]}" @click.stop="articleLike">
           <img v-if="item.attributes[likeField]" class="action-item__icon" src="~assets/images/png/like.png">
           <img v-else class="action-item__icon" src="~assets/images/png/like.png">
@@ -41,7 +41,7 @@
           <img class="action-item__icon" src="~assets/images/png/comment.png">
           {{ item.attributes.comment_count }}
         </li>
-      </ul> -->
+      </ul>
     </div>
     <img
       v-if="item.attributes.image"
@@ -100,13 +100,19 @@ export default {
       return `http://localhost:1337${url}`;
     },
     toDetail(hash = "") {
-      console.log("进入articleItem.vue的toDetail方法里");
+      console.log("走进了articleItem.vue的toDetail方法里面");
       let routeUrl = this.$router.resolve({
         name: "detail-id",
         params: {
           id: this.detailId,
         },
       });
+      console.log(
+        "articleItem.vue的toDetail方法里面的detailId为" + this.detailId
+      );
+      console.log(
+        "articleItem.vue的toDetail方法里面的routeUrl.href为" + routeUrl.href
+      );
       window.open(routeUrl.href + hash, "_blank");
       // window.open("/detail/2" + hash, '_blank')
     },

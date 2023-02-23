@@ -2,7 +2,7 @@
   <nuxt-link :to="'/user/'+item.user_id" target="_blank">
     <div class="user-item">
       <div class="user-item__avatar">
-        <user-avatar :url="item.avatar_large" :round="true"></user-avatar>
+        <user-avatar :url="item.avatar_large.attributes.url" :round="true"></user-avatar>
       </div>
       <div class="user-item__info">
         <p class="user-item__userinfo">

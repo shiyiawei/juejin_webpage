@@ -38,13 +38,13 @@
               </div>
             </div>
           </div>
-          <div>
+          <!-- <div>
             <img
               v-if="articDetail.attributes.image"
               :style="`background-image: url(${articDetail.attributes.image.data.attributes.url})`"
               class="detail__cover"
             />
-          </div>
+          </div> -->
           <div :class="[isWhite? 'topBarDay':'topBarNight', 'detail__content']" v-html="content"></div>
         </div>
       </div>
@@ -221,6 +221,7 @@ export default {
 }
 .detail {
   padding-top: 30px;
+  padding-bottom: 30px;
   border-radius: 2px;
   .detail__header {
     display: flex;
