@@ -2,7 +2,7 @@
   "name": "juejin",
   "version": "1.0.0",
   "description": "nuxtjs juejin project",
-  "author": "露出只因脚队",
+  "author": "shiyiawei",
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon --inspect server/index.js --watch server",
