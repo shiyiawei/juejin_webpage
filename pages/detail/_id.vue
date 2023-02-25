@@ -38,13 +38,14 @@
               </div>
             </div>
           </div>
-          <!-- <div>
+          <div class="cover_img">
             <img
               v-if="articDetail.attributes.image"
-              :style="`background-image: url(${articDetail.attributes.image.data.attributes.url})`"
+              style="width: cover ;"
+              :src="getUrl(articDetail.attributes.image.data.attributes.url)"
               class="detail__cover"
             />
-          </div> -->
+          </div>
           <div :class="[isWhite? 'topBarDay':'topBarNight', 'detail__content']" v-html="content"></div>
         </div>
       </div>
@@ -121,7 +122,7 @@ export default {
   },
   head() {
     return {
-      title: "测试",
+      title: "文章详情",
       meta: [{ hid: "description", name: "description", content: "test" }],
     };
   },
@@ -168,6 +169,9 @@ export default {
     // }
   },
   methods: {
+    getUrl(url) {
+      return `http://localhost:1337${url}`;
+    },
     reachBottom() {
       // if (this.recommendArticlesInfo.hasMore) {
       //   this.getRecommendEntryByTagIds()
@@ -231,7 +235,8 @@ export default {
   }
   .detail__cover {
     width: 100%;
-    padding-top: 50%;
+    height: auto;
+    padding-top: 10px;
     background-size: cover;
     background-position: 50%;
     margin-bottom: 30px;
